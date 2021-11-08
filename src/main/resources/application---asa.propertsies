@@ -1,0 +1,15 @@
+server.port=8008
+oauth.resource.id=cf-backoffice
+oauth.verifier.key=12345678650
+#spring.data.mongodb.port=27017
+spring.data.mongodb.uri=mongodb://localhost:27017/contest_friday
+#spring.data.mongodb.uri=mongodb+srv://contest_friday_db_user:contest_friday_db_password@cluster0.ecqzv.mongodb.net/contestFriday?retryWrites=true&w=majority
+spring.application.name=contest-friday-frontoffice
+
+eureka.client.serviceUrl.defaultZone= http://localhost:8110/eureka
+eureka.instance.easeRenewalIntervalInSeconds = 300
+
+
+datsource.primary.port=27017
+datsource.primary.url=localhost
+datsource.primary.name=contestFriday

@@ -1,0 +1,42 @@
+server.port: 8008
+
+oauth:
+  resource.id: cf-frontoffice
+  verifier.key: 12345678650
+
+
+
+spring:
+  application.name: contest-friday-frontoffice
+
+eureka:
+  client.serviceUrl.defaultZone: http://localhost:8110/eureka
+  instance.easeRenewalIntervalInSeconds: 300
+
+#API Gate way
+zuul:
+  prefix: /api
+  routes:
+    contest-management-service:
+      path: /contest-management-service/**
+      serviceId: contest-management-service
+    proton-service:
+      path: /authentication/**
+      serviceId: proton-service
+    sensitive-headers: Cookie,Set-Cookie
+    host:
+      connect-timeout-millis: 60000
+      socket-timeout-millis: 60000
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+
+
+ribbon.ReadTimeout: 30000
+ribbon.ConnectTimeout: 30000
